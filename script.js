@@ -54,5 +54,50 @@ calling("antiCorruptionCall-btn","calling-antiCorruption", "calling-antiCorrupti
 calling("railwayCall-btn","calling-railway", "railwayNumber")
 
 
+// copy number
+function copingText(x,y){
+    document.getElementById(x).addEventListener("click", function(){
+const copyNumber = parseInt(document.getElementById("copyValue").innerText)
+const copyNumberValue = copyNumber + 1
+document.getElementById("copyValue").innerText = copyNumberValue
+
+const textToBeCoppied = document.getElementById(y);
+
+  const textToCopy = textToBeCoppied.textContent;
+  alert("text copied")
+
+  navigator.clipboard.writeText(textToCopy)
+
+return
+})
+return
+}
+
+copingText("nationalCopyBtn", "calling-nationalEmergencyNumber")
+copingText("ambulanceCopyBtn", "calling-ambulanceNumber")
+copingText("electricityCopyBtn", "calling-electricityNumber")
+copingText("policeCopyBtn", "calling-policeNumber")
+copingText("womenChildCopyBtn", "calling-womenAndChildNumber")
+copingText("bracCopyBtn", "calling-bracNumber")
+copingText("antiCorruptionCopyBtn", "calling-antiCorruptionNumber")
+copingText("railwayCopyBtn", "calling-railwayNumber")
+
+
+
+// document.getElementById("nationalCopyBtn").addEventListener("click", function(){
+// const copyNumber = parseInt(document.getElementById("copyValue").innerText)
+// const copyNumberValue = copyNumber + 1
+// document.getElementById("copyValue").innerText = copyNumberValue
+
+// const textToBeCoppied = document.getElementById("calling-nationalEmergencyNumber");
+
+//   const textToCopy = textToBeCoppied.textContent;
+//   alert("text copied")
+
+//   navigator.clipboard.writeText(textToCopy)
+
+// return
+// })
+
 
 
