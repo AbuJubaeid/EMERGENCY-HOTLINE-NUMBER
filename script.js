@@ -22,6 +22,7 @@ incrementalHeart("railway")
 
 
 // call button
+const callHistory = []
 function calling(x,y,z){
     document.getElementById(x).addEventListener("click", function(){
             const callArea = document.getElementById(y).innerText
@@ -34,9 +35,40 @@ function calling(x,y,z){
         alert("Don't have sufficient coin to call")
         return
     }
-    alert(`calling ${callArea} : ${callNumber}`)
+    alert(`Calling ${callArea} : ${callNumber}`)
     document.getElementById("call-coin").innerText = remainingCoinValue
-    return
+
+    const data = {
+        name: callArea,
+        number: callNumber,
+        date: new Date().toLocaleTimeString(),
+    }
+    callHistory.push(data)
+    
+
+    const historyContainer = document.getElementById("callHistorySection")
+    
+    historyContainer.innerText = ""
+    for(const history of callHistory){
+        console.log(history)
+        
+        const div = document.createElement("div")
+
+        div.innerHTML = `
+        <div class="flex justify-between items-center bg-[#eeeeee] mt-3 px-5 py-2 rounded-xl">
+          <div>
+            <h2
+              class="text-xl font-semibold mt-2 font-[hind-madurai-regular]">
+               ${history.name}
+            </h2>
+            <h3>${history.number}</h3>
+          </div>
+          <p>${history.date}</p>
+        </div>
+        `
+        historyContainer.appendChild(div)
+        
+    }
 })
 return
 }
@@ -52,6 +84,14 @@ calling("bracCall-btn","calling-brac", "calling-bracNumber")
 calling("FireServiceCall-btn","calling-fireService", "calling-fireServiceNumber")
 calling("antiCorruptionCall-btn","calling-antiCorruption", "calling-antiCorruptionNumber")
 calling("railwayCall-btn","calling-railway", "railwayNumber")
+
+
+// clear button
+document.getElementById("clearBtn").addEventListener("click", function(){
+    const callHistoryContainer = document.getElementById("callHistorySection")
+
+    callHistoryContainer.innerHTML = ""
+})
 
 
 // copy number
@@ -81,23 +121,5 @@ copingText("womenChildCopyBtn", "calling-womenAndChildNumber")
 copingText("bracCopyBtn", "calling-bracNumber")
 copingText("antiCorruptionCopyBtn", "calling-antiCorruptionNumber")
 copingText("railwayCopyBtn", "calling-railwayNumber")
-
-
-
-// document.getElementById("nationalCopyBtn").addEventListener("click", function(){
-// const copyNumber = parseInt(document.getElementById("copyValue").innerText)
-// const copyNumberValue = copyNumber + 1
-// document.getElementById("copyValue").innerText = copyNumberValue
-
-// const textToBeCoppied = document.getElementById("calling-nationalEmergencyNumber");
-
-//   const textToCopy = textToBeCoppied.textContent;
-//   alert("text copied")
-
-//   navigator.clipboard.writeText(textToCopy)
-
-// return
-// })
-
 
 
