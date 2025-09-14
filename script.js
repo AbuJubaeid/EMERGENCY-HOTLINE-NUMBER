@@ -119,6 +119,7 @@ copingText("electricityCopyBtn", "calling-electricityNumber")
 copingText("policeCopyBtn", "calling-policeNumber")
 copingText("womenChildCopyBtn", "calling-womenAndChildNumber")
 copingText("bracCopyBtn", "calling-bracNumber")
+copingText("fireCopyBtn", "calling-fireServiceNumber")
 copingText("antiCorruptionCopyBtn", "calling-antiCorruptionNumber")
 copingText("railwayCopyBtn", "calling-railwayNumber")
 
